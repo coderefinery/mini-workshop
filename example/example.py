@@ -1,7 +1,3 @@
-import numpy as np
-from skimage import io
-
-
 from noise import add_noise
 from filters import gaussian_smoothing, denoise, warhol_effect, grayscale, pixelate
 from file_io import read_image, save_image
