@@ -8,6 +8,11 @@
 - We will use a Python example but we will not need Python experience to follow and not
   focus on Python programming but rather on software development practices.
 
+Goals for the 3 sessions:
+- Session 1: **Reproducible code changes**. Keep track of code changes and learn how we can collaborate on code using Git and GitHub.
+- Session 2: Add **code documentation** and **testing**. Improve **structure**.
+- Session 3: Document **dependencies** and prepare the code to be **shared**, reused, and published.
+
 
 ## Learner personas
 
@@ -19,7 +24,7 @@
   reusable.
 
 
-:::{prereq} Preparation
+:::{prereq} Preparation (more details will follow)
 - Access to exercise repository
 - Enable rich diffs for Notebooks in GitHub
 :::
