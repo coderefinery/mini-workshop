@@ -1,5 +1,11 @@
 # CodeRefinery mini-workshop
 
+(there will be a figure here)
+
+- Example project: (add link)
+- Inspiration for this example: (add link)
+- This is a mini-version of the [CodeRefinery workshop](https://coderefinery.org/) (6 half-days) which we teach twice a year.
+
 
 ## Goals of this workshop
 
@@ -8,69 +14,60 @@
 - We will use a Python example but we will not need Python experience to follow and not
   focus on Python programming but rather on software development practices.
 
-Goals for the 3 sessions:
+We will explore these in 3 sessions:
 - Session 1: **Reproducible code changes**. Keep track of code changes and learn how we can collaborate on code using Git and GitHub.
 - Session 2: Add **code documentation** and **testing**. Improve **structure**.
 - Session 3: Document **dependencies** and prepare the code to be **shared**, reused, and published.
 
-
-## Learner personas
-
+:::{discussion} Learner personas
 - You write code for their own research: alone or in a small collaboration.
 - You want to be able to contribute to open-source projects.
 - You do data analysis and use (import) code written by others in a Jupyter Notebook (or similar) or a script.
 - You neither write not use code but you want to better understand how
   reproducible research software is created and what matters to make it
   reusable.
-
+:::
 
 :::{prereq} Preparation (more details will follow)
 - Access to exercise repository
 - Enable rich diffs for Notebooks in GitHub
 :::
 
-
-## Session 1: Version control with Git and GitHub
-
-- Creating a repository and porting your project to Git and GitHub
-- Basic commands
-- Branching and merging
-- Recovering from typical mistakes
-- Code review using issues and pull requests
-- Contributing changes to projects of others
-
-
-## Session 2: How to structure, document, and test your research software
-
-- Modular code development
-- Functional programming style vs. object-oriented programming style
-- How to structure the code as it grows
-- Code documentation
-- From unit tests to end-to-end tests
-- Automated testing using GitHub Actions
-
-
-## Session 3: How to make your research software more reusable and reproducible
-
-- Reproducible research: preparing code to be reusable by yourself and others
-- Reproducible environments and workflows
-- Software packaging and distribution
-- Software licensing
-- How to publish your code
-
 ---
 
 ```{toctree}
 :maxdepth: 1
-:caption: Getting started
+:caption: Session 1: Tracking changes
 
-motivation
+1/motivation.md
+1/browse.md
+1/code-review.md
+1/sharing.md
 ```
 
 ```{toctree}
 :maxdepth: 1
-:caption: About
+:caption: Session 2: Usability
 
+2/documentation.md
+2/testing.md
+2/structure.md
+```
+
+```{toctree}
+:maxdepth: 1
+:caption: Session 3: Sharing
+
+3/reproducibility.md
+3/software-licensing.md
+3/publishing.md
+```
+
+```{toctree}
+:maxdepth: 1
+:caption: Reference
+
+guide.md
 All lessons <https://coderefinery.org/lessons/core/>
 CodeRefinery <https://coderefinery.org/>
 Reusing <https://coderefinery.org/lessons/reusing/>
