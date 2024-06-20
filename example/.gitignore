@@ -1,0 +1,4 @@
+*.sif
+venv/
+__pycache__/
+generated/*.jpg
