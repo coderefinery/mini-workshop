@@ -17,7 +17,7 @@ sys.path.insert(0, os.path.abspath('.'))
 
 # -- Project information -----------------------------------------------------
 
-project = "CodeRefinery mini-workshop: Making an image processing pipeline reproducible, reusable, and extensible"
+project = "CodeRefinery mini-workshop"
 copyright = "CodeRefinery team"
 author = "CodeRefinery team"
 github_user = "coderefinery"
