@@ -1,10 +1,26 @@
-# CodeRefinery mini-workshop: Making an image processing pipeline reproducible, reusable, and extensible
+# CodeRefinery mini-workshop
 
 
-## Preparation
+## Goals of this workshop
 
+- We will together create a simple image processing pipeline that is reproducible, reusable, extensible, documented, and tested.
+- We will start with something relatively simple and gradually add the missing pieces: all the way towards making it publishable.
+- We will use a Python example but we will not need Python experience and not
+  focus on Python programming but rather on software development practices.
+
+
+## Learner personas
+
+- You write code for their own research: alone or in a small collaboration.
+- You want to be able to contribute to open-source projects.
+- You use code written by others in a Jupyter Notebook (or similar) or a script.
+- You neither write not use code but you want to better understand how reproducible research software is created and what matters to make it reusable.
+
+
+:::{prereq} Preparation
 - Access to exercise repository
 - Enable rich diffs for Notebooks in GitHub
+:::
 
 
 ## Session 1: Version control with Git and GitHub
