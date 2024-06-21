@@ -1,6 +1,14 @@
 # CodeRefinery mini-workshop
 
-(there will be a figure here)
+:::{figure} index/astronaut.jpg
+:alt: Series of images which come out of the image processing pipeline
+:width: 100%
+
+We will together create a simple image processing pipeline that is
+reproducible, reusable, extensible, documented, and tested.  Celebrating
+[Eileen Collins](https://en.wikipedia.org/wiki/Eileen_Collins), the first woman
+to pilot the Space Shuttle and the first to command a Space Shuttle mission.
+:::
 
 - Example project: <https://github.com/coderefinery/imgfilters>
 - Inspiration for this example: [scikit-image](https://scikit-image.org/docs/stable/auto_examples/index.html)
