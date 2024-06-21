@@ -2,8 +2,8 @@
 
 (there will be a figure here)
 
-- Example project: (add link)
-- Inspiration for this example: (add link)
+- Example project: <https://github.com/coderefinery/imgfilters>
+- Inspiration for this example: [scikit-image](https://scikit-image.org/docs/stable/auto_examples/index.html)
 - This is a mini-version of the [CodeRefinery workshop](https://coderefinery.org/) (6 half-days) which we teach twice a year.
 
 
