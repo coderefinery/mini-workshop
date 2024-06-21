@@ -1,3 +1,11 @@
 # Guide for instructors and contributors
 
-(work in progress)
+
+## Preparing the example repository
+
+:::{figure} guide/network.png
+:alt: Branch network of the example repository
+:width: 100%
+
+Branch network of the example repository.
+:::
