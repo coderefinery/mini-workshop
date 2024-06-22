@@ -70,7 +70,7 @@ $ conda env export --from-history > environment.yml
 ```
 pip:
 ```console
-$ pip freeze > requirements.txt
+$ python -m pip freeze > requirements.txt
 ```
 
 **My recommendation to install dependencies and document them at the same time:**
