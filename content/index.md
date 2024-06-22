@@ -36,9 +36,12 @@ We will explore these in 3 sessions:
   reusable.
 :::
 
-:::{prereq} Preparation (more details will follow)
-- Access to exercise repository
-- Enable rich diffs for Notebooks in GitHub
+:::{prereq} Preparation
+- [GitHub](https://github.com) account if you want to actively participate.
+- Enable [Rich Jupyter Notebook
+  Diffs](https://github.blog/changelog/2023-03-01-feature-preview-rich-jupyter-notebook-diffs/)
+  on GitHub for a better code review experience when changing Jupyter
+  Notebooks.
 :::
 
 ---
