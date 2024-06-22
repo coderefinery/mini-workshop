@@ -86,7 +86,7 @@ Comments:
 
 :::{discussion}
 - Our example code uses the libraries `scikit-image`, `scikit-learn`, `numpy`,
-  and `matplotlib`. Do we need to look at their licenses? In other words, **is
+  `matplotlib`, and `pywavelets`. Do we need to look at their licenses? In other words, **is
   our project derivative work** of something else?
 :::
 
