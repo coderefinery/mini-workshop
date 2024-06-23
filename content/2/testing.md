@@ -83,6 +83,12 @@ from our image processing project.
 - You want to rewrite a function? Start adding a unit test right there first.
 
 
+## Recommendations for Notebooks
+
+(we will share some recommendations here when full-fledged testing
+is too much for your project)
+
+
 ## More resources
 
 - [Software testing lesson material](https://coderefinery.github.io/testing/)
