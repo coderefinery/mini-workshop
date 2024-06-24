@@ -4,7 +4,7 @@
 ## Git is all about keeping track of changes
 
 Below are screenshots of **tracked changes with Git**
-(from this [example repository](https://github.com/bast/runtest/commits/main/runtest/run.py)):
+(from our [example repository](https://github.com/coderefinery/imgfilters/commits/main/)):
 :::{figure} img/git-log-github.png
 :alt: Screenshot of a git log on GitHub
 :width: 80%
@@ -67,7 +67,7 @@ Image created using <https://gopherize.me/>
 
 - **Collaboration**: review, compare, share, discuss
 
-- [Example network graph](https://github.com/coderefinery/git-intro/network)
+- [Example network graph](https://github.com/coderefinery/imgfilters/network)
 
 
 ## Reproducibility
