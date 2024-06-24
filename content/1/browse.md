@@ -19,7 +19,7 @@ What are **branches**?
 - Commits form a history of changes and the history can be visualized as a tree which contains branches.
 - Each repository has a default branch. It is often called `main` or `master`.
 - Branches are like parallel universes where you can experiment with changes without affecting the default branch.
-- Browse the network of branche in our example repository
+- Browse the network of branches in our example repository
   ("Insights" -> "Network"): <https://github.com/coderefinery/imgfilters/network>
 
 
@@ -85,3 +85,12 @@ You can try this or you watch the instructor doing it.
 - In the next episode ({ref}`code-review`) we will discuss how to suggest
   changes from a fork or within the same repository.
 :::
+
+
+## More resources
+
+In this short workshop we focus on **what is possible** and **what are good
+practices** but we cannot focus on **how to do these in detail**
+across the many user interfaces (GitHub web, GitLab web, command line, VS Code, other editors).
+
+- Here we go through those in detail: [Introduction to version control with Git](https://coderefinery.github.io/git-intro/)
