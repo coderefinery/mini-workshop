@@ -41,7 +41,7 @@ We will explore these in 3 sessions:
 - Enable [Rich Jupyter Notebook
   Diffs](https://github.blog/changelog/2023-03-01-feature-preview-rich-jupyter-notebook-diffs/)
   on GitHub for a better code review experience when changing Jupyter
-  Notebooks.
+  Notebooks (click on your avatar top-right on GitHub, then "Feature preview").
 :::
 
 ---
