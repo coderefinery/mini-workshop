@@ -20,6 +20,11 @@ Web browser, GitHub view
 The same as above, but the terminal view
 :::
 
+:::{discussion}
+- Commits are like snapshots of the repository at a certain point in time.
+- Commits carry metadata about changes: author, date, commit message, and a checksum.
+:::
+
 
 ## Why do we need to keep track of versions?
 
