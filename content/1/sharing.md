@@ -12,7 +12,7 @@
 
 ## Exercise
 
-:::::{exercise} Exercise: Turn your project to a Git repo and share it (25 min)
+:::::{exercise} Optional exercise/homework: Turn your project to a Git repo and share it
 
 1. Create a new directory called **myproject** with one or few files in it.
    This represents our own project. It is not yet a Git repository. You can try
@@ -289,19 +289,20 @@ Same as command line
 
 ## Remote repositories
 
-In this exercise we have pushed our local repository to a remote repository.
-We will learn how to work with remote repositories in detail in the
-[collaborative distributed version
-control](https://coderefinery.github.io/git-collaborative/) lesson.  To store
-your git data on another server, you use **remotes**.  A remote is a repository
-on its own, with its own branches. We can **push** changes to the remote and
-**pull** from the remote.
+In this exercise we have pushed our local repository to a remote
+repository.  You can learn how to work with remote repositories in
+detail in the [collaborative distributed version
+control](https://coderefinery.github.io/git-collaborative/) lesson.  
+
+To store your Git data on another server, you use **remotes**.  A
+remote is a repository on its own, with its own branches. We can
+**push** changes to the remote and **pull** from the remote.
 
 You might use remotes to:
 - Back up your own work or make your work findable.
 - To collaborate with other people.
 
-There are different types of remotes:
+There are services that can be a remote:
 - If you have a server you can SSH to, you can use that as a remote.
 - [GitHub](https://github.com) is a popular, closed-source commercial site.
 - [GitLab](https://about.gitlab.com) is a popular, open-core
@@ -319,3 +320,5 @@ accessible**, condider making your code **citable and persistent**: Get a
 persistent identifier (PID) such as DOI in addition to sharing the code
 publicly, by using services like [Zenodo](https://zenodo.org) or similar
 services.
+
+We will practice this together in the episode {ref}`publishing-code`.
