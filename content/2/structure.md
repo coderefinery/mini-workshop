@@ -56,4 +56,37 @@ Adding a command-line interface (CLI) to a script is an often undervalued "super
 - We will discuss the advantages of doing this.
 :::
 
-(we will add more details here)
+Here is an example solution using [Argparse](https://docs.python.org/3/library/argparse.html):
+```python
+from imgfilters.filters import pixelate
+from imgfilters.file_io import read_image, save_image
+
+import argparse
+
+
+def parse_arguments():
+    parser = argparse.ArgumentParser(description="Pixelate image")
+    parser.add_argument(
+        "--input", type=str, required=True, help="Path to the input image"
+    )
+    parser.add_argument(
+        "--output", type=str, required=True, help="Path to the output image"
+    )
+    parser.add_argument(
+        "--scale", type=float, default=0.05, help="Scale for pixelation"
+    )
+
+    return parser.parse_args()
+
+
+args = parse_arguments()
+
+
+image = read_image(args.input)
+image_pixelated = pixelate(image, scale=args.scale, num_colors=8)
+save_image(image_pixelated, args.output)
+```
+
+Instead of Argparse, we could have used
+[Click](https://click.palletsprojects.com) or
+[docopt](http://docopt.org/) or ...
