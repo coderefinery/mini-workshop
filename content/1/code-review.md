@@ -46,7 +46,9 @@ in two pull requests:
 
 :::{exercise}
 1) Open an issue, describe an idea, then open a pull request that
-cross-references the issue, then improve the pull request based on feedback.
+cross-references the issue, then improve the pull request based on feedback
+(as an example, we can try to change one of the colors in the warhol_effect
+filter).
 2) Compare the following "diff" between two branches that modifies our
 Notebook. View it with and without the [Rich Jupyter Notebook
 Diffs](https://github.blog/changelog/2023-03-01-feature-preview-rich-jupyter-notebook-diffs/)
