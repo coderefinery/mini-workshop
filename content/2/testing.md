@@ -85,8 +85,11 @@ from our image processing project.
 
 ## Recommendations for Notebooks
 
-(we will share some recommendations here when full-fledged testing
-is too much for your project)
+- Automated testing is often too much for notebooks.
+- Instead you can test modules that you import in the notebook.
+- What is often more useful is to provide an example input
+  and show how the result should look like.
+  Good example: [scikit-image](https://scikit-image.org/docs/stable/auto_examples/index.html)
 
 
 ## More resources
