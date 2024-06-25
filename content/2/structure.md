@@ -22,6 +22,20 @@ Motivation to structure code into functions:
 - For languages with garbage collection, functions can help to manage memory.
 
 
+## Prefer pure functions
+
+These are functions without side-effects, meaning they do not modify any global
+variables or have any other side-effects.
+
+Functions without side-effects are easier to understand and to copy-paste into
+other projects.
+
+Examples for impure functions:
+- Functions which modify global variables.
+- Functions which modify input data.
+- Functions which read from or write to files or databases.
+
+
 ## From one file to multiple files
 
 Motivation to split code into multiple files:
