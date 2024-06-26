@@ -53,7 +53,10 @@ Adding a command-line interface (CLI) to a script is an often undervalued "super
 :::
 
 :::{discussion}
-- We will discuss the advantages of doing this.
+- We will discuss the advantages of doing this:
+  - **Easier to use**: Give the user the freedom to change data and settings without having to modify the code.
+  - **Easier to parallelize**: Give the user the freedom to choose their parallelization strategy.
+  - **Easier to automate**: As part of pipeline/workflow tools.
 :::
 
 Here is an example solution using [Argparse](https://docs.python.org/3/library/argparse.html):
