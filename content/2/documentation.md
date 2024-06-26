@@ -40,7 +40,7 @@ Keeping zombie code "just in case" (rather use version control):
 
 Emulating version control:
 ```python
-# somebody: threshold changed from 0 to 15 on August 5, 2013
+# John Doe: threshold changed from 0 to 15 on August 5, 2013
 if temperature > 15:
     print("It is warm")
 ```
