@@ -15,22 +15,6 @@
 - Time is limited - let the documentation answer FAQs.
 
 
-## Often a README is enough - checklist
-
-- **Purpose**
-- Installation instructions
-- Requirements
-- **Copy-paste-able example to get started**
-- Tutorials covering key functionality
-- Reference documentation (e.g. API) covering all functionality
-- Authors and **recommended citation**
-- License
-- Contribution guide
-
-See also the
-[JOSS review checklist](https://joss.readthedocs.io/en/latest/review_checklist.html).
-
-
 ## In-code documentation
 
 Not very useful (more commentary than comment):
@@ -86,6 +70,22 @@ def kelvin_to_celsius(temp_k: float) -> float:
 
     return temp_c
 ```
+
+
+## Often a README is enough - checklist
+
+- **Purpose**
+- Installation instructions
+- Requirements
+- **Copy-paste-able example to get started**
+- Tutorials covering key functionality
+- Reference documentation (e.g. API) covering all functionality
+- Authors and **recommended citation**
+- License
+- Contribution guide
+
+See also the
+[JOSS review checklist](https://joss.readthedocs.io/en/latest/review_checklist.html).
 
 
 ## What if you need more than a README?
