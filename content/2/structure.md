@@ -93,3 +93,8 @@ save_image(image_pixelated, args.output)
 Instead of Argparse, we could have used
 [Click](https://click.palletsprojects.com) or
 [docopt](http://docopt.org/) or ...
+
+
+## More resources
+
+- [Command Line Interface Guidelines](https://clig.dev/)
