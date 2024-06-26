@@ -127,6 +127,7 @@ See also the
 
 - [Documentation lesson material](https://coderefinery.github.io/documentation/)
 - [Talk material "Documenting code" by S. Wittke](https://github.com/samumantha/documentation_example)
+- Inside Sphinx we can add tables, images, equations, code snippets, ... ([more information](https://coderefinery.github.io/documentation/sphinx/#exercise-adding-more-sphinx-content).
 
 
 ## Optional: How to auto-generate documentation from docstrings in Python
