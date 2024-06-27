@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Reproducible dependencies, environments, and workflows &mdash; CodeRefinery mini-workshop  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=949a1ff5" />
+      <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sphinx_lesson.css?v=0c089442" />
+      <link rel="stylesheet" type="text/css" href="../../_static/term_role_formatting.css?v=4194e21c" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sphinx_rtd_theme_ext_color_contrast.css?v=8e8ea19f" />
+      <link rel="stylesheet" type="text/css" href="../../_static/style.css?v=791bfbd6" />
+      <link rel="stylesheet" type="text/css" href="../../_static/tabs.css?v=a5c4661c" />
+
+  
+    <link rel="shortcut icon" href="../../_static/coderefinery.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=187304be"></script>
+        <script src="../../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="../../_static/copybutton.js?v=582ca9e2"></script>
+        <script src="../../_static/minipres.js?v=a0d29692"></script>
+        <script>let toggleHintShow = 'Click to show';</script>
+        <script>let toggleHintHide = 'Click to hide';</script>
+        <script>let toggleOpenOnPrint = 'true';</script>
+        <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+        <script data-domain="coderefinery.github.io" defer="defer" src="https://plausible.cs.aalto.fi/js/script.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex/" />
+    <link rel="search" title="Search" href="../../search/" />
+    <link rel="next" title="Choosing a software license" href="../software-licensing/" />
+    <link rel="prev" title="How to structure the code as it grows" href="../../2/structure/" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../" class="icon icon-home">
+            CodeRefinery mini-workshop
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search/" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Session 1: Tracking changes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../1/motivation/">Motivation for version control</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../1/browse/">Copy and browse an existing project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../1/code-review/">Collaboration and code review using issues and pull requests</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../1/sharing/">How to turn your project to a Git repo and share it</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Session 2: Usability</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../2/documentation/">Code documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../2/testing/">Automated testing: from unit tests to end-to-end tests</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../2/structure/">How to structure the code as it grows</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Session 3: Sharing</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Reproducible dependencies, environments, and workflows</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#have-you-ever-experienced-the-following">Have you ever experienced the following?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#tracking-dependencies-in-python">Tracking dependencies in Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#what-if-i-need-to-record-the-entire-operating-system">What if I need to record the entire operating system?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#recording-computational-steps">Recording computational steps</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#more-reading">More reading</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../software-licensing/">Choosing a software license</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../publishing/">How to publish your code</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../guide/">Guide for instructors and contributors</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://coderefinery.org/lessons/core/">All lessons</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://coderefinery.org/">CodeRefinery</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://coderefinery.org/lessons/reusing/">Reusing</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../">CodeRefinery mini-workshop</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Reproducible dependencies, environments, and workflows</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/coderefinery/mini-workshop/blob/main/content/3/reproducibility.md" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="reproducible-dependencies-environments-and-workflows">
+<h1>Reproducible dependencies, environments, and workflows<a class="headerlink" href="#reproducible-dependencies-environments-and-workflows" title="Link to this heading"></a></h1>
+<div class="admonition-objectives objectives admonition" id="objectives-0">
+<p class="admonition-title">Objectives</p>
+<ul class="simple">
+<li><p>Learn how to document dependencies in Python.</p></li>
+<li><p>Discuss how to document dependencies in other languages.</p></li>
+<li><p>Each (non-trivial) Python project from now on should have a
+<code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code> or <code class="docutils literal notranslate"><span class="pre">environment.yml</span></code> file.</p></li>
+</ul>
+</div>
+<section id="have-you-ever-experienced-the-following">
+<h2>Have you ever experienced the following?<a class="headerlink" href="#have-you-ever-experienced-the-following" title="Link to this heading"></a></h2>
+<ol class="arabic simple">
+<li><p>You try to run a code or notebook and it cannot find a module?</p></li>
+</ol>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>
+  <span class="n">File</span> <span class="s2">&quot;/home/user/imgfilters/example.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+    <span class="kn">from</span> <span class="nn">imgfilters.filters</span> <span class="kn">import</span> <span class="p">(</span>
+  <span class="n">File</span> <span class="s2">&quot;/home/user/imgfilters/imgfilters/filters.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+    <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="ne">ModuleNotFoundError</span><span class="p">:</span> <span class="n">No</span> <span class="n">module</span> <span class="n">named</span> <span class="s1">&#39;numpy&#39;</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="2">
+<li><p>You have installed the module but the code still does not work since it needs
+a different version of the module?</p></li>
+<li><p>“It works on my machine 🤷” but not on your machine?</p></li>
+</ol>
+<div class="admonition-discussion discussion important admonition" id="discussion-0">
+<p class="admonition-title">Discussion</p>
+<ul class="simple">
+<li><p>How do you install and use dependencies in your projects?</p></li>
+<li><p>How do you document them?</p></li>
+</ul>
+</div>
+</section>
+<section id="tracking-dependencies-in-python">
+<h2>Tracking dependencies in Python<a class="headerlink" href="#tracking-dependencies-in-python" title="Link to this heading"></a></h2>
+<p><strong>There are two standard files to document dependencies in Python.</strong>
+Either use <code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code> (together with pip) or <code class="docutils literal notranslate"><span class="pre">environment.yml</span></code> (Conda).</p>
+<p>Let us study the <a class="reference external" href="https://github.com/coderefinery/imgfilters/blob/main/requirements.txt">requirements.txt</a> from our project.</p>
+<ul class="simple">
+<li><p>How would we “pin” the versions?</p></li>
+<li><p>When should we “pin” the versions?</p></li>
+</ul>
+<p>How would the corresponding <code class="docutils literal notranslate"><span class="pre">environment.yml</span></code> look like?</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">imgfilters</span>
+<span class="nt">channels</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">conda-forge</span>
+<span class="nt">dependencies</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">python=3.12</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">numpy</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">scikit-image</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">scikit-learn</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pywavelets</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">matplotlib</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">jupyterlab</span>
+</pre></div>
+</div>
+<p><strong>What if you don’t remember which dependencies you have installed?</strong></p>
+<p>Conda:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># list all dependencies and write them to file</span>
+$<span class="w"> </span>conda<span class="w"> </span>env<span class="w"> </span><span class="nb">export</span><span class="w"> </span>&gt;<span class="w"> </span>environment.yml
+
+<span class="c1"># omit detailed build information</span>
+$<span class="w"> </span>conda<span class="w"> </span>env<span class="w"> </span><span class="nb">export</span><span class="w"> </span>--no-builds<span class="w"> </span>&gt;<span class="w"> </span>environment.yml
+
+<span class="c1"># only list dependencies that were explicitly installed, not their dependencies</span>
+$<span class="w"> </span>conda<span class="w"> </span>env<span class="w"> </span><span class="nb">export</span><span class="w"> </span>--from-history<span class="w"> </span>&gt;<span class="w"> </span>environment.yml
+</pre></div>
+</div>
+<p>pip:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>freeze<span class="w"> </span>&gt;<span class="w"> </span>requirements.txt
+</pre></div>
+</div>
+<p><strong>My recommendation to install dependencies and document them at the same time:</strong>
+Document them first and then install from file:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>conda<span class="w"> </span>env<span class="w"> </span>create<span class="w"> </span>-f<span class="w"> </span>environment.yml
+<span class="gp">$ </span>pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt
+</pre></div>
+</div>
+</section>
+<section id="what-if-i-need-to-record-the-entire-operating-system">
+<h2>What if I need to record the entire operating system?<a class="headerlink" href="#what-if-i-need-to-record-the-entire-operating-system" title="Link to this heading"></a></h2>
+<p>One solution can be: Containers (Apptainer/Singularity, Docker, …)
+but the details of this are outside the scope of this short course.</p>
+</section>
+<section id="recording-computational-steps">
+<h2>Recording computational steps<a class="headerlink" href="#recording-computational-steps" title="Link to this heading"></a></h2>
+<p>We need a way to record and <strong>communicate</strong> computational steps:</p>
+<ul class="simple">
+<li><p><strong>README</strong> (steps written out “in words”)</p></li>
+<li><p><strong>Scripts</strong> (typically shell scripts)</p></li>
+<li><p><strong>Notebooks</strong> (Jupyter or R Markdown)</p></li>
+<li><p><strong>Workflows</strong> (Snakemake, doit, …)</p></li>
+</ul>
+<figure class="align-default">
+<a class="reference internal image-reference" href="../../_images/busy.png"><img alt="Busy kitchen" src="../../_images/busy.png" style="width: 50%;" /></a>
+</figure>
+<p>[Midjourney, CC-BY-NC 4.0]</p>
+</section>
+<section id="more-reading">
+<h2>More reading<a class="headerlink" href="#more-reading" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://coderefinery.github.io/reproducible-research/">Reproducible research</a></p></li>
+<li><p><a class="reference external" href="https://the-turing-way.netlify.app/reproducible-research/reproducible-research.html">The Turing Way: Guide for Reproducible Research</a></p></li>
+<li><p><a class="reference external" href="https://doi.org/10.1371/journal.pcbi.1008316">Ten simple rules for writing Dockerfiles for reproducible data science</a></p></li>
+<li><p><a class="reference external" href="https://doi.org/10.5281/zenodo.8089471">Computing environment reproducibility</a></p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../../2/structure/" class="btn btn-neutral float-left" title="How to structure the code as it grows" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../software-licensing/" class="btn btn-neutral float-right" title="Choosing a software license" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright CodeRefinery team.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

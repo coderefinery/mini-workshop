@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>How to structure the code as it grows &mdash; CodeRefinery mini-workshop  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=949a1ff5" />
+      <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sphinx_lesson.css?v=0c089442" />
+      <link rel="stylesheet" type="text/css" href="../../_static/term_role_formatting.css?v=4194e21c" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sphinx_rtd_theme_ext_color_contrast.css?v=8e8ea19f" />
+      <link rel="stylesheet" type="text/css" href="../../_static/style.css?v=791bfbd6" />
+      <link rel="stylesheet" type="text/css" href="../../_static/tabs.css?v=a5c4661c" />
+
+  
+    <link rel="shortcut icon" href="../../_static/coderefinery.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=187304be"></script>
+        <script src="../../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="../../_static/copybutton.js?v=582ca9e2"></script>
+        <script src="../../_static/minipres.js?v=a0d29692"></script>
+        <script>let toggleHintShow = 'Click to show';</script>
+        <script>let toggleHintHide = 'Click to hide';</script>
+        <script>let toggleOpenOnPrint = 'true';</script>
+        <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+        <script data-domain="coderefinery.github.io" defer="defer" src="https://plausible.cs.aalto.fi/js/script.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex/" />
+    <link rel="search" title="Search" href="../../search/" />
+    <link rel="next" title="Reproducible dependencies, environments, and workflows" href="../../3/reproducibility/" />
+    <link rel="prev" title="Automated testing: from unit tests to end-to-end tests" href="../testing/" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../" class="icon icon-home">
+            CodeRefinery mini-workshop
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search/" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Session 1: Tracking changes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../1/motivation/">Motivation for version control</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../1/browse/">Copy and browse an existing project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../1/code-review/">Collaboration and code review using issues and pull requests</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../1/sharing/">How to turn your project to a Git repo and share it</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Session 2: Usability</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../documentation/">Code documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../testing/">Automated testing: from unit tests to end-to-end tests</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">How to structure the code as it grows</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#from-no-functions-to-functions">From no functions to functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#prefer-pure-functions">Prefer pure functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#from-one-file-to-multiple-files">From one file to multiple files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#exercise-demo-adding-a-command-line-interface">Exercise/demo: Adding a command-line interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#more-resources">More resources</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Session 3: Sharing</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../3/reproducibility/">Reproducible dependencies, environments, and workflows</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../3/software-licensing/">Choosing a software license</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../3/publishing/">How to publish your code</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../guide/">Guide for instructors and contributors</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://coderefinery.org/lessons/core/">All lessons</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://coderefinery.org/">CodeRefinery</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://coderefinery.org/lessons/reusing/">Reusing</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../">CodeRefinery mini-workshop</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">How to structure the code as it grows</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/coderefinery/mini-workshop/blob/main/content/2/structure.md" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="how-to-structure-the-code-as-it-grows">
+<h1>How to structure the code as it grows<a class="headerlink" href="#how-to-structure-the-code-as-it-grows" title="Link to this heading"></a></h1>
+<div class="admonition-objectives objectives admonition" id="objectives-0">
+<p class="admonition-title">Objectives</p>
+<ul class="simple">
+<li><p>Discuss the advantages of structuring code into functions and files.</p></li>
+<li><p>Add a command-line interface to the code and discuss its advantages.</p></li>
+</ul>
+</div>
+<section id="from-no-functions-to-functions">
+<h2>From no functions to functions<a class="headerlink" href="#from-no-functions-to-functions" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Many projects start with a single file and all code is in the global scope (meaning there are no functions).</p></li>
+<li><p>A bit later we often introduce functions into the code.</p></li>
+</ul>
+<p>Motivation to structure code into functions:</p>
+<ul class="simple">
+<li><p>Less code repetition.</p></li>
+<li><p>Functions can make the overall code flow more readable and easier to follow.
+Example: <a class="reference external" href="https://github.com/coderefinery/imgfilters/blob/main/example.py">https://github.com/coderefinery/imgfilters/blob/main/example.py</a></p></li>
+<li><p>They allow us to encapsulate details and complexity.</p></li>
+<li><p>We can make code reusable across projects and notebooks.</p></li>
+<li><p>Code becomes easier to test.</p></li>
+<li><p>Unintended side effects are less likely to occur.</p></li>
+<li><p>For languages with garbage collection, functions can help to manage memory.</p></li>
+</ul>
+</section>
+<section id="prefer-pure-functions">
+<h2>Prefer pure functions<a class="headerlink" href="#prefer-pure-functions" title="Link to this heading"></a></h2>
+<p>These are functions without side-effects, meaning they do not modify any global
+variables or have any other side-effects.</p>
+<p>Functions without side-effects are easier to understand and to copy-paste into
+other projects.</p>
+<p>Examples for impure functions:</p>
+<ul class="simple">
+<li><p>Functions which modify global variables.</p></li>
+<li><p>Functions which modify input data.</p></li>
+<li><p>Functions which read from or write to files or databases.</p></li>
+</ul>
+</section>
+<section id="from-one-file-to-multiple-files">
+<h2>From one file to multiple files<a class="headerlink" href="#from-one-file-to-multiple-files" title="Link to this heading"></a></h2>
+<p>Motivation to split code into multiple files:</p>
+<ul class="simple">
+<li><p>When the one file grows long and becomes hard to navigate.</p></li>
+<li><p>When we want to reuse some functions in other projects.</p></li>
+<li><p>We can browse <a class="reference external" href="https://github.com/coderefinery/imgfilters/network">https://github.com/coderefinery/imgfilters/network</a> and find the point where that happened.</p></li>
+</ul>
+</section>
+<section id="exercise-demo-adding-a-command-line-interface">
+<h2>Exercise/demo: Adding a command-line interface<a class="headerlink" href="#exercise-demo-adding-a-command-line-interface" title="Link to this heading"></a></h2>
+<p>Adding a command-line interface (CLI) to a script is an often undervalued “superpower” of programming.</p>
+<div class="admonition-exercise exercise important admonition" id="exercise-0">
+<p class="admonition-title">Exercise</p>
+<ul class="simple">
+<li><p>We will together add a command-line interface to our example code.</p></li>
+</ul>
+</div>
+<div class="admonition-discussion discussion important admonition" id="discussion-0">
+<p class="admonition-title">Discussion</p>
+<ul class="simple">
+<li><p>We will discuss the advantages of doing this:</p>
+<ul>
+<li><p><strong>Easier to use</strong>: Give the user the freedom to change data and settings without having to modify the code.</p></li>
+<li><p><strong>Easier to parallelize</strong>: Give the user the freedom to choose their parallelization strategy.</p></li>
+<li><p><strong>Easier to automate</strong>: As part of pipeline/workflow tools.</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<p>Here is an example solution using <a class="reference external" href="https://docs.python.org/3/library/argparse.html">Argparse</a>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">imgfilters.filters</span> <span class="kn">import</span> <span class="n">pixelate</span>
+<span class="kn">from</span> <span class="nn">imgfilters.file_io</span> <span class="kn">import</span> <span class="n">read_image</span><span class="p">,</span> <span class="n">save_image</span>
+
+<span class="kn">import</span> <span class="nn">argparse</span>
+
+
+<span class="k">def</span> <span class="nf">parse_arguments</span><span class="p">():</span>
+    <span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s2">&quot;Pixelate image&quot;</span><span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
+        <span class="s2">&quot;--input&quot;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">str</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">&quot;Path to the input image&quot;</span>
+    <span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
+        <span class="s2">&quot;--output&quot;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">str</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">&quot;Path to the output image&quot;</span>
+    <span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
+        <span class="s2">&quot;--scale&quot;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">float</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mf">0.05</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">&quot;Scale for pixelation&quot;</span>
+    <span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
+
+
+<span class="n">args</span> <span class="o">=</span> <span class="n">parse_arguments</span><span class="p">()</span>
+
+
+<span class="n">image</span> <span class="o">=</span> <span class="n">read_image</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">input</span><span class="p">)</span>
+<span class="n">image_pixelated</span> <span class="o">=</span> <span class="n">pixelate</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">args</span><span class="o">.</span><span class="n">scale</span><span class="p">,</span> <span class="n">num_colors</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
+<span class="n">save_image</span><span class="p">(</span><span class="n">image_pixelated</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">output</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Instead of Argparse, we could have used
+<a class="reference external" href="https://click.palletsprojects.com">Click</a> or
+<a class="reference external" href="http://docopt.org/">docopt</a> or …</p>
+</section>
+<section id="more-resources">
+<h2>More resources<a class="headerlink" href="#more-resources" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://clig.dev/">Command Line Interface Guidelines</a></p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../testing/" class="btn btn-neutral float-left" title="Automated testing: from unit tests to end-to-end tests" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../../3/reproducibility/" class="btn btn-neutral float-right" title="Reproducible dependencies, environments, and workflows" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright CodeRefinery team.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
