@@ -83,7 +83,8 @@ $ pip install -r requirements.txt
 
 ## What if I need to record the entire operating system?
 
-(Here I will add an Apptainer example for our example project)
+One solution can be: Containers (Apptainer/Singularity, Docker, ...)
+but the details of this are outside the scope of this short course.
 
 
 ## Recording computational steps
