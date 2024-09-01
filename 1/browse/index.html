@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Copy and browse an existing project &mdash; CodeRefinery mini-workshop  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=949a1ff5" />
+      <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sphinx_lesson.css?v=0c089442" />
+      <link rel="stylesheet" type="text/css" href="../../_static/term_role_formatting.css?v=4194e21c" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sphinx_rtd_theme_ext_color_contrast.css?v=8e8ea19f" />
+      <link rel="stylesheet" type="text/css" href="../../_static/style.css?v=791bfbd6" />
+      <link rel="stylesheet" type="text/css" href="../../_static/tabs.css?v=a5c4661c" />
+
+  
+    <link rel="shortcut icon" href="../../_static/coderefinery.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=187304be"></script>
+        <script src="../../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="../../_static/copybutton.js?v=582ca9e2"></script>
+        <script src="../../_static/minipres.js?v=a0d29692"></script>
+        <script>let toggleHintShow = 'Click to show';</script>
+        <script>let toggleHintHide = 'Click to hide';</script>
+        <script>let toggleOpenOnPrint = 'true';</script>
+        <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+        <script data-domain="coderefinery.github.io" defer="defer" src="https://plausible.cs.aalto.fi/js/script.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex/" />
+    <link rel="search" title="Search" href="../../search/" />
+    <link rel="next" title="Collaboration and code review using issues and pull requests" href="../code-review/" />
+    <link rel="prev" title="Motivation for version control" href="../motivation/" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../" class="icon icon-home">
+            CodeRefinery mini-workshop
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search/" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Session 1: Tracking changes</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../motivation/">Motivation for version control</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Copy and browse an existing project</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#repositories-and-branches">Repositories and branches</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#annotated-history">Annotated history</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#what-is-a-fork-let-s-create-and-browse-it">What is a fork? Let’s create and browse it!</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#exercise-demo-creating-a-new-branch-and-a-new-commit">Exercise/demo: creating a new branch and a new commit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#how-does-this-relate-to-your-own-work">How does this relate to your own work?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#more-resources">More resources</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../code-review/">Collaboration and code review using issues and pull requests</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sharing/">How to turn your project to a Git repo and share it</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Session 2: Usability</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../2/documentation/">Code documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../2/testing/">Automated testing: from unit tests to end-to-end tests</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../2/structure/">How to structure the code as it grows</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Session 3: Sharing</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../3/reproducibility/">Reproducible dependencies, environments, and workflows</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../3/software-licensing/">Choosing a software license</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../3/publishing/">How to publish your code</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../guide/">Guide for instructors and contributors</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://coderefinery.org/lessons/core/">All lessons</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://coderefinery.org/">CodeRefinery</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://coderefinery.org/lessons/reusing/">Reusing</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../">CodeRefinery mini-workshop</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Copy and browse an existing project</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/coderefinery/mini-workshop/blob/main/content/1/browse.md" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="copy-and-browse-an-existing-project">
+<h1>Copy and browse an existing project<a class="headerlink" href="#copy-and-browse-an-existing-project" title="Link to this heading"></a></h1>
+<div class="admonition-objectives objectives admonition" id="objectives-0">
+<p class="admonition-title">Objectives</p>
+<ul class="simple">
+<li><p>We will fork the <a class="reference external" href="https://github.com/coderefinery/imgfilters">example project</a>.</p></li>
+<li><p>We will find a point in history when a code default changed (using <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">annotate</span></code>).</p></li>
+<li><p>We will create a branch and a commit with a new file added to <code class="docutils literal notranslate"><span class="pre">exercise</span></code>
+directory.</p></li>
+</ul>
+</div>
+<section id="repositories-and-branches">
+<h2>Repositories and branches<a class="headerlink" href="#repositories-and-branches" title="Link to this heading"></a></h2>
+<p>What is a <strong>Git repository</strong>?</p>
+<ul class="simple">
+<li><p>Git repository contains a bunch of files and tracks their changes over time.</p></li>
+<li><p>Git repositories typically reside on GitHub or GitLab or on your computer or on some server.</p></li>
+<li><p>Git repositories track changes using commits.</p></li>
+</ul>
+<p>What are <strong>branches</strong>?</p>
+<ul class="simple">
+<li><p>Commits form a history of changes and the history can be visualized as a tree which contains branches.</p></li>
+<li><p>Each repository has a default branch. It is often called <code class="docutils literal notranslate"><span class="pre">main</span></code> or <code class="docutils literal notranslate"><span class="pre">master</span></code>.</p></li>
+<li><p>Branches are like parallel universes where you can experiment with changes without affecting the default branch.</p></li>
+<li><p>Browse the network of branches in our example repository
+(“Insights” -&gt; “Network”): <a class="reference external" href="https://github.com/coderefinery/imgfilters/network">https://github.com/coderefinery/imgfilters/network</a></p></li>
+</ul>
+</section>
+<section id="annotated-history">
+<h2>Annotated history<a class="headerlink" href="#annotated-history" title="Link to this heading"></a></h2>
+<div class="admonition-let-us-try-the-annotation-feature-git-blame exercise important admonition" id="exercise-0">
+<p class="admonition-title">Let us try the annotation feature (“git blame”)</p>
+<ul class="simple">
+<li><p>The function <a class="reference external" href="https://github.com/coderefinery/imgfilters/blob/8aefed153328230092df31775dcd2388721bb862/imgfilters/filters.py#L16-L22">gaussian_smoothing</a> has a default value for sigma. But this default used to be different.</p></li>
+<li><p>Find out <strong>when</strong> this default value was changed (which commit).</p></li>
+<li><p>Would you be able to do this archaeology work with your project?</p></li>
+<li><p>Is the commit message informative about <strong>why</strong> this was changed?</p></li>
+</ul>
+</div>
+</section>
+<section id="what-is-a-fork-let-s-create-and-browse-it">
+<h2>What is a fork? Let’s create and browse it!<a class="headerlink" href="#what-is-a-fork-let-s-create-and-browse-it" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>A fork is a full copy of a repository.</p></li>
+<li><p>You have then write permissions to your copy.</p></li>
+<li><p>Once a fork is created, you decide when to sync changes from the original
+repository - it does not happen automatically.</p></li>
+</ul>
+<figure class="align-default" id="id1">
+<a class="with-border reference internal image-reference" href="../../_images/create-fork.png"><img alt="Creating a fork on GitHub" class="with-border" src="../../_images/create-fork.png" style="width: 100%;" /></a>
+<figcaption>
+<p><span class="caption-text">Creating a fork on GitHub</span><a class="headerlink" href="#id1" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id2">
+<a class="with-border reference internal image-reference" href="../../_images/verify-fork.png"><img alt="Verify that you are on your fork" class="with-border" src="../../_images/verify-fork.png" style="width: 100%;" /></a>
+<figcaption>
+<p><span class="caption-text">Verify that you are on your fork</span><a class="headerlink" href="#id2" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="exercise-demo-creating-a-new-branch-and-a-new-commit">
+<h2>Exercise/demo: creating a new branch and a new commit<a class="headerlink" href="#exercise-demo-creating-a-new-branch-and-a-new-commit" title="Link to this heading"></a></h2>
+<p>You can try this or you watch the instructor doing it.</p>
+<div class="admonition-creating-a-new-branch-and-a-new-commit exercise important admonition" id="exercise-1">
+<p class="admonition-title">Creating a new branch and a new commit</p>
+<ul class="simple">
+<li><p>Create a new branch in your fork and give it a descriptive name.</p></li>
+<li><p>Add a new file in the <code class="docutils literal notranslate"><span class="pre">exercise</span></code> directory to the new branch.</p></li>
+<li><p>In this file we will try to answer: “What do you know now about programming
+that you wish you knew when you started?”.</p></li>
+<li><p>The new branch and new file now only exist on the fork, not yet in the
+original repository.</p></li>
+</ul>
+</div>
+</section>
+<section id="how-does-this-relate-to-your-own-work">
+<h2>How does this relate to your own work?<a class="headerlink" href="#how-does-this-relate-to-your-own-work" title="Link to this heading"></a></h2>
+<div class="admonition-summary admonition">
+<p class="admonition-title">Summary</p>
+<ul class="simple">
+<li><p>Forking is useful if you want to modify a repository that you do not have
+write access to or if you want to allow others to experiment with your
+repository.</p></li>
+<li><p>Within your research project you probably want to give all project members
+write access and then you can work within the same repository.</p></li>
+<li><p>If you are more than 1 person working on a project, it can be useful
+to make the <code class="docutils literal notranslate"><span class="pre">main</span></code> branch protected and to always create a new branch for each
+new feature or bug-fix or idea.</p></li>
+<li><p>In the next episode (<a class="reference internal" href="../code-review/#code-review"><span class="std std-ref">Collaboration and code review using issues and pull requests</span></a>) we will discuss how to suggest
+changes from a fork or within the same repository.</p></li>
+</ul>
+</div>
+</section>
+<section id="more-resources">
+<h2>More resources<a class="headerlink" href="#more-resources" title="Link to this heading"></a></h2>
+<p>In this short workshop we focus on <strong>what is possible</strong> and <strong>what are good
+practices</strong> but we cannot focus on <strong>how to do these in detail</strong>
+across the many user interfaces (GitHub web, GitLab web, command line, VS Code, other editors).</p>
+<ul class="simple">
+<li><p>Here we go through those in detail: <a class="reference external" href="https://coderefinery.github.io/git-intro/">Introduction to version control with Git</a></p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../motivation/" class="btn btn-neutral float-left" title="Motivation for version control" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../code-review/" class="btn btn-neutral float-right" title="Collaboration and code review using issues and pull requests" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright CodeRefinery team.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
