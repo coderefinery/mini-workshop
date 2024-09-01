@@ -258,11 +258,13 @@ online!
 
 :::{group-tab} RStudio
 
-This is not fully explained, because a lot of it is similar to the "Command line" method (and an RStudio expert could help us some).  The main differeences are:
+This is not fully explained, because a lot of it is similar to the "Command
+line" method (and an RStudio expert could help us some).  The main differences
+are:
 
-### Put your project under version conrol
+### Put your project under version control
 
-1. Tools → Version control → Project setup → Version conrol system = Git.
+1. Tools → Version control → Project setup → Version control system = Git.
 1. Select "Yes" for "do you want to initialize a new git repository for this project.
 1. Select yes to restart the project with RStudio.
 1. Switch to branch `main` to have you branch named that.
@@ -316,7 +318,7 @@ There are services that can be a remote:
 ## Is putting software on GitHub/GitLab/... publishing?
 
 It is a good first step but to make your code truly **findable and
-accessible**, condider making your code **citable and persistent**: Get a
+accessible**, consider making your code **citable and persistent**: Get a
 persistent identifier (PID) such as DOI in addition to sharing the code
 publicly, by using services like [Zenodo](https://zenodo.org) or similar
 services.
